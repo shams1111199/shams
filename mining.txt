@@ -1,0 +1,47 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+datatrain =pd.read_csv(r'C:\users\18f18001\downloads\data_train.csv')
+
+
+datatrain.head(5)
+
+
+datatrain.shape
+
+
+datatrain=datatrain.dropna()
+datatrain.shape
+dataTest.isnull().sum()
+datatrain.dtypes
+
+
+plotchart
+import seaborn as sns 
+plt.figure(figsize=(10,6))
+sns.regplot(x="odometer_value",y="price_usd",data=datatrain)
+
+from scipy import stats
+pearson_coef, p_value=stats.pearsonr(datatrain['odometer_value'], datatrain['price_usd'])
+print("The Pearson Correlation Coefficient is", pearson_coef," with a P-value of P =",p_value)
+
+
+sns.boxplot(x="transmission", y="price_usd", data=datatrain)
+
+sns.boxplot(x="body_type", y="price_usd", data=datatrain)
+
+heatmap;
+
+plt.figure(figsize=(10,6))
+corr = datatrain.corr()
+sns.heatmap(corr,annot=True)
+plt.show()
+
+
+from sklearn.preprocessing import LabelEncoder
+LabelEncoder = LabelEncoder()
+
+datatrain.manufacturer_name = LabelEncoder.fit_transform(datatrain.manufacturer_name)
+
+datatrain.head()
